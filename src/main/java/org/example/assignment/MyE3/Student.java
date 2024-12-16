@@ -1,4 +1,4 @@
-package org.example.Assignment.MyE3;
+package org.example.assignment.MyE3;
 
 public class Student {
     private String rollNumber;

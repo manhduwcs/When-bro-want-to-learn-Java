@@ -1,7 +1,6 @@
-package org.example.Assignment.MyE3;
+package org.example.assignment.MyE3;
 
 import java.util.Scanner;
-import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 

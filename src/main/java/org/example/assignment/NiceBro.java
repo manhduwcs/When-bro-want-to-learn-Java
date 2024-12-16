@@ -1,10 +1,13 @@
-package org.example.Assignment;
+package org.example.assignment;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class NiceBro {
+    public NiceBro() {
+    }
+
     public static void main(String[] args) {
         NiceBro mai = new NiceBro();
         Scanner sc = new Scanner(System.in);

@@ -1,4 +1,4 @@
-package org.example;
+package org.example.origin;
 
 public class Pair<L,R>{
     private L l;

@@ -1,9 +1,8 @@
-package org.example.Assignment.MyE3;
+package org.example.assignment.MyE3;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
-import java.util.Set;
 
 
 public class StudentManagement {

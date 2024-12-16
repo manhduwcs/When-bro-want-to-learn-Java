@@ -1,17 +1,12 @@
-package org.example;
+package org.example.origin;
 
-import org.example.Assignment.MyE3.Student;
-
-import java.security.KeyPair;
 import java.time.LocalDate;
-import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
-import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
@@ -28,15 +23,15 @@ public class Main {
     // Nếu T là kiểu String : () -> sc.nextLine() / sc::nextLine
     // Nếu T là kiểu số (int, double, v.v) bắt buộc supplier là : (vd : Integer)
     // () -> Integer.parse(sc.nextLine());
-    public static<T> T inputInfor(String prompt, Supplier<T> supplier, Predicate<T> validator, String errorMessage){
-        while(true){
-            try{
-                System.out.print(prompt+" : ");
+    public static <T> T inputInfor(String prompt, Supplier<T> supplier, Predicate<T> validator, String errorMessage) {
+        while (true) {
+            try {
+                System.out.print(prompt + " : ");
                 T input = supplier.get();
-                if(!validator.test(input)) throw new IllegalArgumentException(errorMessage);
+                if (!validator.test(input)) throw new IllegalArgumentException(errorMessage);
                 return input;
             } catch (Exception e) {
-                System.out.println("Error : "+e.getMessage()+"\n");
+                System.out.println("Error : " + e.getMessage() + "\n");
             }
         }
     }
@@ -190,11 +185,9 @@ public class Main {
         return fibonacci(n - 2) + fibonacci(n - 1);
     }
 
-    public static String longestSubstring(String str) {
-        if (str.isEmpty()) return "";
-
-        char[] charstr = str.toCharArray();
-        char[] result = new char[str.length()];
+    public static String longestSubstring(String s) {
+        char[] charstr = s.toCharArray();
+        char[] result = new char[s.length()];
         int from = 0, fcheck = 0;
         int to = 0;
         int max = 0, maxcheck = 0;
