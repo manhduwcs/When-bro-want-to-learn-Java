@@ -2,6 +2,8 @@ package org.example.origin;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 public class Origin {
@@ -9,14 +11,16 @@ public class Origin {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             String url = "jdbc:mysql://localhost:3306/test";
-            String username = "bro";
-            String password = "";
-            Connection con = DriverManager.getConnection(url, username, password);
-            System.out.println("Database connected succesfully !");
-            
-            con.close();
+            Connection con = DriverManager.getConnection(url, "bro", "");
+            Statement st = con.createStatement();
+
+            ResultSet rs = st.executeQuery("select * from students where id<=5");
+            System.out.println("Query Result : ");
+            while (rs.next()) {
+                System.out.printf("Id = %d, Name = %s, Age : %d, Mark : %.1f%n", rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getDouble(4));
+            }
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            System.out.println("Error : " + e.getMessage());
         }
     }
 

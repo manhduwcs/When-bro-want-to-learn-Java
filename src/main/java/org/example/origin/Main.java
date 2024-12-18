@@ -8,8 +8,27 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 
+class Parent {
+    public Parent() {
+    }
+
+    ;
+
+    protected void display() {
+        System.out.println("From Parent ;");
+    }
+}
+
+class Children extends Parent {
+    public void display() {
+        System.out.println("From Children !");
+    }
+}
+
 public class Main {
     public static void main(String[] args) {
+        Parent p = new Parent();
+        Parent p2 = new Children();
 
     }
 //    protected static String nameRegex = "^(\\p{L}{2,})( \\p{L}{2,})+$";
