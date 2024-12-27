@@ -12,7 +12,6 @@ class Parent {
     public Parent() {
     }
 
-    ;
 
     protected void display() {
         System.out.println("From Parent ;");

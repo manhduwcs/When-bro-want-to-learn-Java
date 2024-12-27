@@ -1,27 +1,61 @@
 package org.example.origin;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import javax.swing.*;
+import javax.swing.border.Border;
+import java.awt.*;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Origin {
     public static void main(String[] args) {
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            String url = "jdbc:mysql://localhost:3306/test";
-            Connection con = DriverManager.getConnection(url, "bro", "");
-            Statement st = con.createStatement();
+        JFrame frame = new JFrame();
+        JLabel label = new JLabel();
+        Image img = new ImageIcon("src/main/resources/avtCat.jpg").getImage().getScaledInstance(140, 140, Image.SCALE_DEFAULT);
+        ImageIcon avt = new ImageIcon(img);
+        Border border = BorderFactory.createLineBorder(Color.black, 4);
 
-            ResultSet rs = st.executeQuery("select * from students where id<=5");
-            System.out.println("Query Result : ");
-            while (rs.next()) {
-                System.out.printf("Id = %d, Name = %s, Age : %d, Mark : %.1f%n", rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getDouble(4));
-            }
-        } catch (Exception e) {
-            System.out.println("Error : " + e.getMessage());
-        }
+        label.setText("What the fuck");
+        label.setIcon(avt);
+
+        label.setHorizontalTextPosition(JLabel.CENTER);
+        label.setVerticalTextPosition(JLabel.TOP);
+
+        label.setForeground(Color.gray);
+        label.setFont(new Font("MV Boli", Font.PLAIN, 25));
+        label.setIconTextGap(10);
+//        label.setBackground(new Color(245, 158, 145));
+//        label.setOpaque(true);
+        label.setBorder(border);
+
+        frame.setLayout(null);
+
+        label.setHorizontalAlignment(JLabel.LEFT);
+        label.setVerticalAlignment(JLabel.TOP);
+        label.setBounds(100, 100, 200, 200);
+
+        frame.setTitle("New Swing, nice bro !");
+        frame.add(label);
+        frame.setIconImage(avt.getImage());
+
+        frame.setSize(680, 680);
+        frame.setVisible(true);
+        frame.setResizable(true);
+//        frame.pack();
+//        frame.getContentPane().setBackground(new Color(0x123456));
+
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // set close, exit application
+    }
+
+    public static List<Student> initializeList() {
+        Student John = new Student(1, "John", "Doe", 22, 9.0);
+        Student Alice = new Student(2, "Alice", "Smith", 20, 9.0);
+        Student Bob = new Student(3, "Bob", "Johnson", 25, 7.5);
+        Student Eve = new Student(4, "Eve", "Brown", 30, 6.0);
+        Student Charlie = new Student(5, "Charlie", "Davis", 24, 7.5);
+        Student Grace = new Student(6, "Grace", "Miller", 18, 7.5);
+        Student David = new Student(7, "David", "Wilson", 28, 9.5);
+
+        return new ArrayList<>(List.of(John, Alice, Bob, Eve, Charlie, Grace, David));
     }
 
     // Matrix
