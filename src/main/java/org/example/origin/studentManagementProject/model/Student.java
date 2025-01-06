@@ -8,10 +8,10 @@ public class Student {
     private int age;
     private LocalDate dateOfBirth;
     private String email;
-    private int phoneNumber;
+    private String phoneNumber;
     private double mark;
 
-    public Student(String rollNumber, String name, int age, LocalDate dateOfBirth, String email, int phoneNumber, double mark) {
+    public Student(String rollNumber, String name, int age, LocalDate dateOfBirth, String email, String phoneNumber, double mark) {
         this.rollNumber = rollNumber;
         this.name = name;
         this.age = age;
@@ -66,11 +66,11 @@ public class Student {
         return this;
     }
 
-    public int phoneNumber() {
+    public String phoneNumber() {
         return phoneNumber;
     }
 
-    public Student setPhoneNumber(int phoneNumber) {
+    public Student setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
         return this;
     }

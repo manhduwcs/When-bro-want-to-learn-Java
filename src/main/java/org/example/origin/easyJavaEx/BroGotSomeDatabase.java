@@ -122,9 +122,13 @@ public class BroGotSomeDatabase {
     public void readStudent() {
         String query = "SELECT * FROM students";
         try {
-            Statement st = con.createStatement();
+            Statement st = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
             ResultSet rs = st.executeQuery(query);
+
             while (rs.next()) {
+
+            }
+            while (rs.previous()) {
                 System.out.println("Student Name : " + rs.getString(2) + " ; age = " + rs.getInt(3) + " ; mark = " + rs.getDouble(4));
             }
         } catch (SQLException e) {
